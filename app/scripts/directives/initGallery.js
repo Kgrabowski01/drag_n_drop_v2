@@ -4,36 +4,34 @@
 
   .controller('GalleryCtrl', ['$scope', function($scope) {
 
-    var vm = this;
-    vm.imagesTab = ['blob:null/f95394ea-8448-4305-94f5-301ae8093ad8','blob:null/3bf180b7-8501-44e0-82f7-18d22c197479'];
 
-    $scope.uploadFile = function(event){
+    var vm = this;
+
+    vm.uploadFile = function(event){
       var files = event.target.files;
       var reader = new FileReader ();
       for ( var i = 0, img ; img = files[i]; i++ ) {
         var item = URL.createObjectURL(files[i]);
         console.log(item);
-        vm.imagesTab.push(item);
-        console.log(vm.imagesTab);
+        vm.images.push(item);
+        console.log(vm.images);
+
       };
     };
-
+  $scope.$watch('images', function () {console.log("git");},true);
   }])
 
   .directive('initGallery', function () {
     return {
       restrict: 'AE',
-      template: '<input type="file" custom-on-change="uploadFile">',
+      template: '<input type="file" custom-on-change="ctrl.uploadFile"><div ng-repeat="img in ctrl.images"><thumbnail data="img"></thumbnail></div>',
+      transclude: true,
       controller: 'GalleryCtrl',
-      controllerAs: 'vm',
-      bindToController: true,
-      scope: {
-        images: '='
-      },
+      controllerAs: 'ctrl',
+      bindToController: {images:'='},
+      scope: {},
       link: function($scope, $attrs, $element) {
-        console.log($scope.images);
-        console.log($attrs);
-        console.log($element);
+
       }
     }
   })
