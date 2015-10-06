@@ -1,16 +1,17 @@
 (function(){
   'use strict';
   angular.module('dragNDropV2App')
-  
+
   .factory('procesingService', procesingService);
-  procesingService.$inject = [];		
-  
+  procesingService.$inject = [];
+
   function procesingService () {
+
     return {
       scaleImage: scaleImage,
       fullSizeClick: fullSizeClick
     };
-    
+
     function scaleImage (imageObj) {
       var thumbDimension = 150;
       var tempObj = imageObj;
@@ -23,11 +24,11 @@
       };
       return tempObj;
     };
-    
+
     function fullSizeClick (elem, target) {
       elem.onclick = function () {
         window.open("" + target + "", "_blank", "width:100%;height:100%");
       };
     };
-  };  
+  };
 })();

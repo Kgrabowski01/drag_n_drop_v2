@@ -1,19 +1,45 @@
 'use strict';
 
-/*
-* @ngdoc function
-* @name dragNDropV2App.controller:MainCtrl
-* @description
-* # MainCtrl
-* Controller of the dragNDropV2App
-*/
+
 angular.module('dragNDropV2App')
 .controller('MainCtrl', function ($scope) {
   var vm = this;
-  vm.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Karma'
-  ];
-  vm.images = ['blob:http://localhost:9000/ef5f5a1e-9f12-4345-ad70-a882c4dcf6e9', 'blob:http://localhost:9000/e964f852-96a7-4d54-94ec-5e0e7eec7043'];
+  vm.images = [];
+
+    if (localStorage.img) {
+      var filesDataUrl = angular.fromJson(localStorage.img);
+      vm.images = filesDataUrl;
+    }
+    
+    vm.clearLocalStorage = function () {
+      localStorage.img = [];
+    }
+
+
+  // $scope.$watch(angular.bind(vm, function () {
+  //   return vm.images;
+  // }), function (newVal, oldVal) {
+  //   console.log(newVal);
+  //   console.log(oldVal);
+  // });
+
+  /*
+
+  .controller('someCtrl', function ($scope) {
+  var vm = this;
+  vm.title = ['xxxx'];
+  this.changeXX = function () {
+  vm.title.push('aaaa');
+};
+$scope.$watch(angular.bind(vm, function () {
+return vm.title;
+}), function (newVal, oldVal) {
+console.log(newVal);
+console.log(oldVal);
+},true);
+})
+
+*/
+
+
 });

@@ -16,11 +16,7 @@
   <!-- endbuild -->
 </head>
 <body ng-app="dragNDropV2App">
-  <!--[if lte IE 8]>
-  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
 
-  <!-- Add your site or application content here -->
   <div class="header">
     <div class="container">
       <a class="navbar-brand">dragNDropV2</a>
@@ -30,6 +26,13 @@
   <div class="container">
     <div ng-view=""></div>
   </div>
+
+  <!-- test $watch -->
+  <div ng-controller="someCtrl as some">
+  {{some.title}}
+  <button ng-click="some.changeXX()">change XXXX</button>
+  </div>
+  <!-- /test $watch -->
 
 
 
@@ -56,6 +59,7 @@
   <script src="scripts/directives/thumbnail.js"></script>
   <script src="scripts/directives/initGallery.js"></script>
   <script src="scripts/services/procesingService.js"></script>
+  <script src="scripts/services/localStorageService.js"></script>
   <!-- endbuild -->
 </body>
 </html>
