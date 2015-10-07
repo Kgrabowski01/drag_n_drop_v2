@@ -6,14 +6,13 @@
   procesingService.$inject = [];
 
   function procesingService () {
-
     return {
       scaleImage: scaleImage,
       fullSizeClick: fullSizeClick
     };
 
-    function scaleImage (imageObj) {
-      var thumbDimension = 150;
+    function scaleImage (imageObj, thumbSize) {
+      var thumbDimension = thumbSize;
       var tempObj = imageObj;
       if (tempObj.width > tempObj.height) {
         tempObj.height = (thumbDimension * tempObj.height) / tempObj.width;

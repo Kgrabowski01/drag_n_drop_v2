@@ -12,9 +12,9 @@
       toDataUlrArray: toDataUlrArray,
     };
 
-    function toDataUlrArray (dataUrl) {
+    function toDataUlrArray (dataUrl, storageName) {
       var tempUrl = dataUrl.src;
-      var imgLocalStor = "img";
+      var imgLocalStor = storageName;
       base64LocalStorageArray.push(tempUrl);
       localStorage.setItem(imgLocalStor, JSON.stringify(base64LocalStorageArray));
       console.log (base64LocalStorageArray)
