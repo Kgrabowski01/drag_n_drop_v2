@@ -16,7 +16,13 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
-
+.dropper {
+	width:400px;
+	height: 200px;
+	border: dashed red 2px;
+	border-radius: 5px;
+	color: white;
+}
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;

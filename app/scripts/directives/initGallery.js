@@ -5,7 +5,7 @@
   .directive('initGallery', function () {
     return {
       restrict: 'AE',
-      template: '<input type="file" accept="image/*" custom-on-change="ctrl.uploadFile"><div ng-repeat="img in ctrl.images"><thumbnail data="img"></thumbnail></div>',
+      template: '<input class="dropper" type="file" accept="image/*" custom-on-change="ctrl.uploadFile"><div ng-repeat="img in ctrl.images"><thumbnail data="img"></thumbnail></div>',
       transclude: true,
       controller: 'UploadCtrl',
       controllerAs: 'ctrl',
